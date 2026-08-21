@@ -12,16 +12,9 @@ export default {
         gold: '#C89D5A',
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'Cambria', 'serif'],
-        sans: [
-          'ui-sans-serif',
-          'system-ui',
-          '-apple-system',
-          'Segoe UI',
-          'Helvetica',
-          'Arial',
-          'sans-serif',
-        ],
+        serif: ['"Playfair Display"', 'Georgia', 'Cambria', 'serif'],
+        sans: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        script: ['"Great Vibes"', 'cursive'],
       },
       letterSpacing: {
         brand: '0.22em',

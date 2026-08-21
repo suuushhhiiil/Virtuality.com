@@ -1,6 +1,8 @@
 import Link from '../components/Link.jsx'
 import Arrow from '../components/Arrow.jsx'
 import Section from '../components/Section.jsx'
+import Icon from '../components/Icon.jsx'
+import HeroStill from '../components/HeroStill.jsx'
 import { home } from '../content/home.js'
 import { ideas } from '../content/ideas.js'
 import { projects } from '../content/projects.js'
@@ -8,122 +10,104 @@ import { usePageTitle } from '../usePageTitle.js'
 
 export default function Home() {
   usePageTitle()
-  const featured = projects.filter((project) => project.featured)
-  const notes = ideas.slice(0, 4)
+  const featured = projects.slice(0, 4)
+  const notes = ideas.slice(0, 3)
 
   return (
     <>
-      <Section className="pb-20 pt-16 sm:pb-28 sm:pt-24">
-        <p className="eyebrow">Write From Left</p>
-        <p className="mt-8 text-sm tracking-wide text-charcoal/70 sm:text-base">
-          {home.greeting}
-          <span className="mt-1 block">{home.role}</span>
-        </p>
-        <h1 className="display mt-8 max-w-4xl text-5xl sm:text-7xl lg:text-[5.25rem]">
-          {home.headline}
-        </h1>
-        <p className="mt-8 font-serif text-2xl italic text-burgundy sm:text-3xl">
-          {home.question}
-        </p>
-        <div className="mt-12 flex flex-wrap gap-4">
-          <Link to="/work" className="btn-primary">
-            Work with me
-            <Arrow />
-          </Link>
-          <Link to="/projects" className="btn-ghost">
-            See the work
-          </Link>
+      <Section className="pb-16 pt-12 sm:pb-24 sm:pt-16">
+        <div className="grid items-center gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <p className="script text-4xl sm:text-5xl">Hi, I’m</p>
+            <h1 className="display mt-2 text-4xl text-burgundy sm:text-6xl lg:text-7xl">
+              Khushboo Sangwan.
+            </h1>
+            <p className="mt-4 text-sm tracking-wide text-charcoal/70 sm:text-base">
+              {home.role}
+            </p>
+            <p className="mt-8 max-w-xl font-serif text-2xl leading-snug sm:text-3xl">
+              I believe your life is the{' '}
+              <em className="text-burgundy">biggest</em> project you’ll ever manage.
+            </p>
+            <p className="mt-4 font-serif text-xl italic text-charcoal/80">{home.question}</p>
+            <Link to="/work" className="btn-primary mt-10">
+              Work With Me <Arrow />
+            </Link>
+          </div>
+          <div className="lg:col-span-5">
+            <HeroStill />
+          </div>
         </div>
       </Section>
 
-      <Section className="border-t border-taupe/40 py-20 sm:py-28">
+      <Section className="border-t border-taupe/40 py-20 sm:py-24">
         <p className="eyebrow">{home.ideasNeed.eyebrow}</p>
-        <h2 className="display mt-4 max-w-3xl text-4xl sm:text-5xl">{home.ideasNeed.title}</h2>
-        <ul className="mt-10 max-w-xl space-y-2 text-lg leading-8 text-charcoal/80">
-          {home.ideasNeed.lines.map((line) => (
-            <li key={line}>{line}</li>
-          ))}
-        </ul>
-        <p className="mt-10 max-w-measure text-lg leading-8">{home.ideasNeed.close}</p>
-        <p className="lede mt-4">{home.ideasNeed.body}</p>
-        <p className="mt-8 max-w-2xl font-serif text-2xl leading-snug text-burgundy sm:text-3xl">
-          {home.ideasNeed.punch}
-        </p>
-      </Section>
-
-      <Section className="border-t border-taupe/40 py-20 sm:py-28">
-        <p className="eyebrow">{home.perspectives.eyebrow}</p>
-        <h2 className="display mt-4 max-w-3xl text-4xl sm:text-5xl">{home.perspectives.title}</h2>
+        <h2 className="display mt-3 max-w-3xl text-3xl uppercase text-burgundy sm:text-5xl">
+          {home.perspectives.title}
+        </h2>
         <p className="lede mt-6">{home.perspectives.intro}</p>
-        <div className="mt-14 grid gap-px bg-taupe/50 sm:grid-cols-2">
+        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
           {home.perspectives.items.map((item) => (
-            <article key={item.n} className="bg-cream p-8 sm:p-10">
-              <p className="eyebrow">{item.n}</p>
-              <h3 className="mt-4 font-serif text-2xl sm:text-3xl">{item.title}</h3>
-              <p className="mt-4 leading-7 text-charcoal/75">{item.body}</p>
+            <article key={item.n} className="text-center sm:text-left">
+              <Icon name={item.icon} className="mx-auto h-8 w-8 text-burgundy sm:mx-0" />
+              <h3 className="mt-4 font-serif text-xl text-burgundy">{item.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-charcoal/70">{item.body}</p>
             </article>
           ))}
         </div>
-        <p className="lede mt-12">{home.perspectives.writing}</p>
       </Section>
 
-      <Section className="bg-wine py-20 text-cream sm:py-28">
-        <p className="font-sans text-[0.7rem] uppercase tracking-brand text-gold">
-          {home.change.eyebrow}
-        </p>
-        <h2 className="display mt-4 max-w-3xl text-4xl text-cream sm:text-5xl">
-          {home.change.title}
-        </h2>
-        <p className="mt-6 max-w-measure text-lg leading-8 text-cream/75">{home.change.body}</p>
-        <p className="mt-6 max-w-measure font-serif text-2xl italic text-gold">
-          {home.change.emphasis}
-        </p>
-        <p className="mt-4 max-w-measure text-cream/75">{home.change.follow}</p>
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {home.change.steps.map((step, index) => (
-            <div key={step.title} className="border-t border-cream/20 pt-5">
-              <p className="text-[0.7rem] uppercase tracking-brand text-gold">0{index + 1}</p>
-              <h3 className="mt-3 font-serif text-2xl">{step.title}</h3>
-              <p className="mt-2 text-sm text-cream/70">{step.body}</p>
+      <Section className="bg-wine py-16 text-cream sm:py-20">
+        <p className="text-[0.7rem] uppercase tracking-brand text-gold">{home.stats.eyebrow}</p>
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {home.stats.items.map((item) => (
+            <div key={item.label} className="flex flex-col items-center text-center">
+              <div className="flex h-28 w-28 items-center justify-center rounded-full border border-gold/50">
+                <span className="font-serif text-3xl">{item.n}</span>
+              </div>
+              <p className="mt-4 text-sm font-medium">{item.label}</p>
+              <p className="mt-2 text-xs leading-5 text-cream/60">{item.body}</p>
             </div>
           ))}
         </div>
-        <p className="mt-14 max-w-2xl font-serif text-2xl leading-snug text-cream">
-          {home.change.close}
+        <p className="script mx-auto mt-12 max-w-xl text-center text-3xl text-gold sm:text-4xl">
+          {home.stats.quote}
         </p>
       </Section>
 
-      <Section className="py-20 sm:py-28">
+      <Section className="py-20 sm:py-24">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="eyebrow">Selected projects</p>
-            <h2 className="display mt-4 max-w-2xl text-4xl sm:text-5xl">
+            <p className="eyebrow">Featured projects</p>
+            <h2 className="display mt-3 text-3xl sm:text-5xl">
               Here’s what that looks like in practice.
             </h2>
           </div>
           <Link to="/projects" className="text-link">
-            View all projects <Arrow />
+            See all projects <Arrow />
           </Link>
         </div>
         <p className="lede mt-6">
           Every project comes with its own goals, people, limitations and unexpected problems. I look at what needs to be achieved, understand what’s getting in the way and build the way forward.
         </p>
-        <div className="mt-14 divide-y divide-taupe/50 border-y border-taupe/50">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((project) => (
             <Link
               key={project.slug}
               to={`/projects/${project.slug}`}
-              className="group grid gap-4 py-10 lg:grid-cols-12 lg:items-start"
+              className="group flex flex-col border border-taupe/40 bg-cream"
             >
-              <p className="eyebrow lg:col-span-3">{project.status}</p>
-              <div className="lg:col-span-9">
-                <h3 className="font-serif text-3xl transition-colors group-hover:text-burgundy sm:text-4xl">
-                  {project.title}
-                </h3>
-                <p className="mt-2 text-sm text-charcoal/55">{project.kicker}</p>
-                <p className="mt-4 max-w-2xl leading-7 text-charcoal/80">{project.challenge}</p>
-                <span className="text-link mt-6">
-                  Explore project <Arrow />
+              <div className="flex aspect-[4/3] items-end bg-wine p-4">
+                <p className="text-[0.62rem] uppercase tracking-brand text-gold">{project.status}</p>
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="font-serif text-2xl group-hover:text-burgundy">{project.title}</h3>
+                <p className="mt-2 text-xs leading-5 text-charcoal/55">{project.kicker}</p>
+                <p className="mt-3 line-clamp-4 flex-1 text-sm leading-6 text-charcoal/75">
+                  {project.summary}
+                </p>
+                <span className="text-link mt-5 text-xs uppercase tracking-brand">
+                  View project <Arrow />
                 </span>
               </div>
             </Link>
@@ -131,98 +115,91 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section className="border-t border-taupe/40 py-20 sm:py-28">
-        <p className="eyebrow">{home.currently.eyebrow}</p>
-        <h2 className="display mt-4 text-4xl sm:text-5xl">{home.currently.title}</h2>
-        <p className="mt-4 font-serif text-2xl italic text-burgundy">{home.currently.lede}</p>
-        <p className="lede mt-6">{home.currently.body}</p>
-        <p className="mt-4 max-w-measure leading-7 text-charcoal/75">{home.currently.more}</p>
-        <dl className="mt-10 grid gap-8 sm:grid-cols-3">
-          {home.currently.meta.map((item) => (
-            <div key={item.label} className="border-t border-taupe/50 pt-4">
-              <dt className="eyebrow">{item.label}</dt>
-              <dd className="mt-2 text-sm leading-6">{item.value}</dd>
+      <Section className="border-t border-taupe/40 py-20 sm:py-24">
+        <p className="eyebrow">{home.change.eyebrow}</p>
+        <h2 className="display mt-3 max-w-3xl text-3xl sm:text-5xl">{home.change.title}</h2>
+        <p className="lede mt-6">{home.change.body}</p>
+        <p className="mt-4 max-w-measure font-serif text-xl italic text-burgundy">
+          {home.change.emphasis}
+        </p>
+        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {home.change.steps.map((step, index) => (
+            <div key={step.title} className="relative">
+              <p className="eyebrow">0{index + 1}</p>
+              <h3 className="mt-3 font-serif text-2xl text-burgundy">{step.title}</h3>
+              <p className="mt-2 text-sm text-charcoal/70">{step.body}</p>
             </div>
           ))}
-        </dl>
-        <Link to="/projects/chapter-one" className="text-link mt-10">
-          Follow the project <Arrow />
-        </Link>
+        </div>
+        <p className="script mt-12 text-3xl text-burgundy sm:text-4xl">{home.change.close}</p>
       </Section>
 
-      <Section className="border-t border-taupe/40 py-20 sm:py-28">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+      <Section className="border-t border-taupe/40 py-20 sm:py-24">
+        <div className="grid gap-16 lg:grid-cols-2">
           <div>
-            <p className="eyebrow">Notebook</p>
-            <h2 className="display mt-4 text-4xl sm:text-5xl">What I’m thinking about.</h2>
-          </div>
-          <Link to="/ideas" className="text-link">
-            Read more <Arrow />
-          </Link>
-        </div>
-        <p className="lede mt-6">
-          I write about the things I actually work with: project management, creative strategy, content, productivity and the process of turning ideas into something real.
-        </p>
-        <div className="mt-12 grid gap-px bg-taupe/50 sm:grid-cols-2">
-          {notes.map((note) => (
-            <Link key={note.slug} to={`/ideas/${note.slug}`} className="group bg-cream p-8 sm:p-10">
-              <p className="eyebrow">{note.tags.join(' · ')}</p>
-              <h3 className="mt-4 font-serif text-2xl leading-snug group-hover:text-burgundy sm:text-3xl">
-                {note.title}
-              </h3>
-              <span className="text-link mt-6">
-                Read <Arrow />
-              </span>
+            <p className="eyebrow">Ideas, insights & notes</p>
+            <h2 className="display mt-3 text-3xl sm:text-4xl">What I’m thinking about.</h2>
+            <div className="mt-8 divide-y divide-taupe/40 border-y border-taupe/40">
+              {notes.map((note) => (
+                <Link key={note.slug} to={`/ideas/${note.slug}`} className="group block py-5">
+                  <p className="eyebrow">{note.tags.join(' · ')}</p>
+                  <h3 className="mt-2 font-serif text-xl group-hover:text-burgundy">{note.title}</h3>
+                </Link>
+              ))}
+            </div>
+            <Link to="/ideas" className="text-link mt-6">
+              View all blogs <Arrow />
             </Link>
-          ))}
+          </div>
+          <div>
+            <p className="eyebrow">Resources & products</p>
+            <h2 className="display mt-3 text-3xl sm:text-4xl">{home.shopTeaser.title}</h2>
+            <p className="mt-4 text-sm leading-7 text-charcoal/70">{home.shopTeaser.body}</p>
+            <ul className="mt-8 divide-y divide-taupe/40 border-y border-taupe/40">
+              {home.shopTeaser.items.map((item) => (
+                <li key={item.title} className="flex items-start justify-between gap-4 py-5">
+                  <div>
+                    <p className="font-serif text-xl text-burgundy">{item.title}</p>
+                    <p className="mt-1 text-sm text-charcoal/65">{item.body}</p>
+                  </div>
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                </li>
+              ))}
+            </ul>
+            <Link to="/shop" className="text-link mt-6">
+              Explore products <Arrow />
+            </Link>
+          </div>
         </div>
       </Section>
 
-      <Section className="border-t border-taupe/40 py-20 sm:py-28">
-        <p className="eyebrow">{home.shopTeaser.eyebrow}</p>
-        <h2 className="display mt-4 max-w-3xl text-4xl sm:text-5xl">{home.shopTeaser.title}</h2>
-        <p className="lede mt-6">{home.shopTeaser.body}</p>
-        <div className="mt-12 grid gap-10 sm:grid-cols-3">
-          {home.shopTeaser.items.map((item) => (
-            <article key={item.title} className="border-t border-taupe/50 pt-5">
-              <h3 className="font-serif text-2xl">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-charcoal/70">{item.body}</p>
-            </article>
-          ))}
-        </div>
-        <Link to="/shop" className="text-link mt-10">
-          Explore products <Arrow />
-        </Link>
-      </Section>
-
-      <Section className="border-t border-taupe/40 py-20 sm:py-28">
-        <p className="eyebrow">{home.aboutTeaser.eyebrow}</p>
-        <h2 className="display mt-4 max-w-3xl text-4xl sm:text-5xl">{home.aboutTeaser.title}</h2>
-        <p className="lede mt-6">{home.aboutTeaser.body}</p>
-        <p className="mt-8 font-serif text-4xl italic text-burgundy sm:text-5xl">
+      <Section className="border-t border-taupe/40 py-16 sm:py-20">
+        <p className="script text-3xl">{home.aboutTeaser.eyebrow}</p>
+        <h2 className="display mt-3 max-w-3xl text-3xl sm:text-4xl">{home.aboutTeaser.title}</h2>
+        <p className="mt-6 max-w-measure font-serif text-2xl italic text-burgundy">
           {home.aboutTeaser.question}
         </p>
-        <p className="mt-6 text-lg">{home.aboutTeaser.close}</p>
-        <Link to="/about" className="text-link mt-10">
+        <Link to="/about" className="text-link mt-8">
           Meet Khushboo <Arrow />
         </Link>
       </Section>
 
-      <Section className="bg-charcoal py-20 text-cream sm:py-28">
-        <h2 className="display max-w-3xl text-4xl text-cream sm:text-5xl">{home.cta.title}</h2>
-        <p className="mt-6 max-w-measure text-lg leading-8 text-cream/75">{home.cta.body}</p>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <Link to="/work" className="btn-primary">
-            Work with me
-          </Link>
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center border border-cream/30 px-6 py-3 text-xs uppercase tracking-brand text-cream hover:border-gold hover:text-gold"
-          >
-            Start a conversation
-          </Link>
+      <Section className="bg-burgundy py-20 text-cream sm:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-8">
+            <h2 className="display max-w-3xl text-3xl text-cream sm:text-5xl">{home.cta.title}</h2>
+            <p className="mt-6 max-w-measure text-base leading-8 text-cream/80">{home.cta.body}</p>
+          </div>
+          <div className="lg:col-span-4 lg:text-right">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center bg-cream px-6 py-3 text-xs uppercase tracking-brand text-burgundy hover:bg-gold hover:text-wine"
+            >
+              Start a conversation <Arrow />
+            </Link>
+            <p className="mt-4 text-sm italic text-gold">{home.cta.aside}</p>
+          </div>
         </div>
-        <p className="mt-8 text-sm italic text-gold">{home.cta.aside}</p>
       </Section>
     </>
   )

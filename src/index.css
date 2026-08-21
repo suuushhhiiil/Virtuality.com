@@ -44,7 +44,11 @@ body {
   }
 
   .display {
-    @apply font-serif font-medium leading-[1.08] tracking-tight text-charcoal;
+    @apply font-serif font-semibold leading-[1.08] tracking-tight text-charcoal;
+  }
+
+  .script {
+    @apply font-script font-normal leading-none text-burgundy;
   }
 
   .lede {
