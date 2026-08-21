@@ -17,10 +17,35 @@ function githubPagesSpaFallback() {
   }
 }
 
+function stripPagesBootFromBuild() {
+  return {
+    name: 'strip-pages-boot-from-build',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html, ctx) {
+        if (ctx.server) return html
+        return html.replace(/<script id="pages-boot">[\s\S]*?<\/script>/, '')
+      },
+    },
+  }
+}
+
 export default defineConfig({
   base: process.env.VITE_BASE || '/',
-  plugins: [react(), githubPagesSpaFallback()],
+  plugins: [react(), stripPagesBootFromBuild(), githubPagesSpaFallback()],
   appType: 'spa',
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/main.js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: (asset) =>
+          asset.names?.some((name) => name.endsWith('.css')) || asset.name?.endsWith('.css')
+            ? 'assets/main.css'
+            : 'assets/[name][extname]',
+      },
+    },
+  },
   server: {
     host: true,
     port: 5173,
