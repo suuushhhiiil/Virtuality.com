@@ -10,14 +10,16 @@ export const site = {
     'Ideas don’t become real just because they’re good. They need structure, movement and someone willing to take responsibility for making them happen.',
   philosophy: 'Your life is the biggest project you’ll ever manage.',
   tagline: 'Be different. Be rare. Be you.',
+  motto: 'ideas. strategy. impact.',
 }
 
 export const navItems = [
-  { to: '/work', label: 'Work' },
+  { to: '/work', label: 'Work With Me' },
   { to: '/projects', label: 'Projects' },
-  { to: '/ideas', label: 'Ideas' },
+  { to: '/shop', label: 'Products' },
+  { to: '/ideas', label: 'Blogs' },
   { to: '/about', label: 'About' },
-  { to: '/shop', label: 'Shop' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 export const contactReasons = [

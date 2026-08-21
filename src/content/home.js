@@ -19,33 +19,67 @@ export const home = {
   },
   perspectives: {
     eyebrow: 'How I help',
-    title: 'One project. Multiple perspectives.',
+    title: 'I turn ideas into impact.',
     intro:
       'Good projects rarely need just one skill. They need someone who can see the bigger picture, keep the details moving and find a way forward when things don’t go according to plan.',
     items: [
       {
         n: '01',
+        icon: 'target',
         title: 'Project Management',
         body: 'I turn goals into plans, define timelines and keep projects moving from start to finish.',
       },
       {
         n: '02',
+        icon: 'people',
         title: 'Project Coordination',
         body: 'I keep people, tasks, information and deliverables aligned so progress doesn’t get lost along the way.',
       },
       {
         n: '03',
+        icon: 'bulb',
         title: 'Creative Strategy',
         body: 'When something isn’t working, I find a different way forward.',
       },
       {
         n: '04',
+        icon: 'page',
         title: 'Content Strategy',
         body: 'I turn project goals and audience needs into clear messages, content and communication with a purpose.',
       },
+      {
+        n: '05',
+        icon: 'pen',
+        title: 'Writing That Connects',
+        body: 'Because I write too, I can take the strategy all the way to the words without losing the original intention.',
+      },
     ],
-    writing:
-      'And then there’s the writing. Because I write too, I can take the strategy all the way to the words without losing the original intention along the way.',
+  },
+  stats: {
+    eyebrow: 'Experience you can measure',
+    quote: 'Different projects. Different challenges. The same responsibility: move the work forward.',
+    items: [
+      {
+        n: 'X+',
+        label: 'Years of experience',
+        body: 'Managing projects, coordinating work and developing creative solutions.',
+      },
+      {
+        n: 'X+',
+        label: 'Projects delivered',
+        body: 'Across content, digital and creative work.',
+      },
+      {
+        n: 'X+',
+        label: 'Campaigns & initiatives',
+        body: 'From planning and strategy through execution.',
+      },
+      {
+        n: 'X',
+        label: 'Areas of expertise',
+        body: 'Project Management · Strategy · Content · Creative',
+      },
+    ],
   },
   change: {
     eyebrow: 'The method',
