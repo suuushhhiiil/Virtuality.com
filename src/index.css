@@ -8,6 +8,8 @@
 
 html {
   scroll-behavior: auto;
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 html.has-smooth-scroll,
@@ -20,6 +22,8 @@ html.lenis body {
 body {
   @apply bg-cream text-charcoal font-sans antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 ::selection {
