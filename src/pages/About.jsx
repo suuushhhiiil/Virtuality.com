@@ -9,7 +9,7 @@ export default function About() {
 
   return (
     <>
-      <Section className="pb-16 pt-16 sm:pb-24 sm:pt-24">
+      <Section className="pb-16 pt-16 sm:pb-24 sm:pt-24" reveal>
         <p className="eyebrow">{about.eyebrow}</p>
         <p className="mt-6 font-sans text-[0.7rem] uppercase tracking-brand text-burgundy">
           {about.brand}

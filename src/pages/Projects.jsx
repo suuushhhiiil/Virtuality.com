@@ -9,7 +9,7 @@ export default function Projects() {
 
   return (
     <>
-      <Section className="pb-16 pt-16 sm:pb-24 sm:pt-24">
+      <Section className="pb-16 pt-16 sm:pb-24 sm:pt-24" reveal>
         <p className="eyebrow">Projects</p>
         <h1 className="display mt-4 max-w-4xl text-5xl sm:text-7xl">
           Ideas are only the beginning.

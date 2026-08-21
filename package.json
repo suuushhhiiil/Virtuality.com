@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://suuushhhiiil.github.io/Virtuality.com/",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -11,6 +12,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.26",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

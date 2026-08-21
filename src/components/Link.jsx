@@ -1,11 +1,12 @@
 import { useNavigation } from '../navigation.js'
+import { withBase } from '../paths.js'
 
 export default function Link({ to, children, className, onClick }) {
   const { navigate } = useNavigation()
 
   return (
     <a
-      href={to}
+      href={withBase(to)}
       className={className}
       onClick={(event) => {
         if (

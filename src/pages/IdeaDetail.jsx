@@ -21,7 +21,7 @@ export default function IdeaDetail({ slug }) {
   }
 
   return (
-    <Section className="py-16 sm:py-24" innerClass="max-w-2xl">
+    <Section className="py-16 sm:py-24" innerClass="max-w-2xl" reveal>
       <Link to="/ideas" className="text-link">
         All ideas
       </Link>
