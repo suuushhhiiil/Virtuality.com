@@ -1,5 +1,8 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
 import { NavigationContext } from './navigation.js'
+import { currentPath, withBase } from './paths.js'
+import { scrollToTop, startMotion } from './motion/engine.js'
+import { useScrollReveals } from './motion/useScrollReveals.js'
 import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
 
@@ -13,9 +16,9 @@ const Shop = lazy(() => import('./pages/Shop.jsx'))
 const Contact = lazy(() => import('./pages/Contact.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 
-function currentPath() {
-  const path = window.location.pathname.replace(/\/+$/, '')
-  return path === '' ? '/' : path
+function RevealBinder({ path }) {
+  useScrollReveals(path)
+  return null
 }
 
 function RoutePage({ path }) {
@@ -36,10 +39,20 @@ function RoutePage({ path }) {
   return <NotFound />
 }
 
+function RouteWithReveals({ path }) {
+  return (
+    <>
+      <RoutePage path={path} />
+      <RevealBinder path={path} />
+    </>
+  )
+}
+
 export default function App() {
   const [path, setPath] = useState(currentPath)
 
   useEffect(() => {
+    startMotion()
     const onPop = () => setPath(currentPath())
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
@@ -51,12 +64,12 @@ export default function App() {
       navigate(to) {
         const next = to.replace(/\/+$/, '') || '/'
         if (next === currentPath()) {
-          window.scrollTo(0, 0)
+          scrollToTop()
           return
         }
-        window.history.pushState({}, '', next)
+        window.history.pushState({}, '', withBase(next))
         setPath(next)
-        window.scrollTo(0, 0)
+        scrollToTop()
       },
     }),
     [path]
@@ -72,7 +85,7 @@ export default function App() {
             </div>
           }
         >
-          <RoutePage path={path} />
+          <RouteWithReveals path={path} />
         </Suspense>
       </Layout>
     </NavigationContext.Provider>

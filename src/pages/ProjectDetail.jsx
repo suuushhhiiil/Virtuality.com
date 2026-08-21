@@ -22,7 +22,7 @@ export default function ProjectDetail({ slug }) {
 
   return (
     <>
-      <Section className="pb-16 pt-16 sm:pb-20 sm:pt-24">
+      <Section className="pb-16 pt-16 sm:pb-20 sm:pt-24" reveal>
         <Link to="/projects" className="text-link">
           All projects
         </Link>

@@ -40,7 +40,7 @@ export default function Contact() {
 
   return (
     <>
-      <Section className="pb-12 pt-16 sm:pb-16 sm:pt-24">
+      <Section className="pb-12 pt-16 sm:pb-16 sm:pt-24" reveal>
         <p className="eyebrow">Contact</p>
         <h1 className="display mt-4 max-w-4xl text-5xl sm:text-7xl">
           Let’s talk about your next project.
@@ -53,7 +53,7 @@ export default function Contact() {
         </p>
       </Section>
 
-      <Section className="pb-20 sm:pb-28">
+      <Section className="pb-20 sm:pb-28" reveal>
         <div className="grid gap-16 lg:grid-cols-12">
           <form className="lg:col-span-7" onSubmit={onSubmit}>
             <p className="eyebrow">Send me a message</p>

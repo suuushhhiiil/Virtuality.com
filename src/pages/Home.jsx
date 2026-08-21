@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Section className="pb-16 pt-12 sm:pb-24 sm:pt-16">
         <div className="grid items-center gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7" data-reveal="">
             <p className="script text-4xl sm:text-5xl">Hi, I’m</p>
             <h1 className="display mt-2 text-4xl text-burgundy sm:text-6xl lg:text-7xl">
               Khushboo Sangwan.
@@ -34,21 +34,23 @@ export default function Home() {
               Work With Me <Arrow />
             </Link>
           </div>
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5" data-reveal="">
             <HeroStill />
           </div>
         </div>
       </Section>
 
       <Section className="border-t border-taupe/40 py-20 sm:py-24">
-        <p className="eyebrow">{home.ideasNeed.eyebrow}</p>
-        <h2 className="display mt-3 max-w-3xl text-3xl uppercase text-burgundy sm:text-5xl">
-          {home.perspectives.title}
-        </h2>
-        <p className="lede mt-6">{home.perspectives.intro}</p>
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
+        <div data-reveal="">
+          <p className="eyebrow">{home.ideasNeed.eyebrow}</p>
+          <h2 className="display mt-3 max-w-3xl text-3xl uppercase text-burgundy sm:text-5xl">
+            {home.perspectives.title}
+          </h2>
+          <p className="lede mt-6">{home.perspectives.intro}</p>
+        </div>
+        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6" data-reveal="">
           {home.perspectives.items.map((item) => (
-            <article key={item.n} className="text-center sm:text-left">
+            <article key={item.n} className="text-center sm:text-left" data-reveal-item="">
               <Icon name={item.icon} className="mx-auto h-8 w-8 text-burgundy sm:mx-0" />
               <h3 className="mt-4 font-serif text-xl text-burgundy">{item.title}</h3>
               <p className="mt-3 text-sm leading-6 text-charcoal/70">{item.body}</p>
@@ -58,10 +60,12 @@ export default function Home() {
       </Section>
 
       <Section className="bg-wine py-16 text-cream sm:py-20">
-        <p className="text-[0.7rem] uppercase tracking-brand text-gold">{home.stats.eyebrow}</p>
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <p className="text-[0.7rem] uppercase tracking-brand text-gold" data-reveal="">
+          {home.stats.eyebrow}
+        </p>
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4" data-reveal="">
           {home.stats.items.map((item) => (
-            <div key={item.label} className="flex flex-col items-center text-center">
+            <div key={item.label} className="flex flex-col items-center text-center" data-reveal-item="">
               <div className="flex h-28 w-28 items-center justify-center rounded-full border border-gold/50">
                 <span className="font-serif text-3xl">{item.n}</span>
               </div>
@@ -76,7 +80,7 @@ export default function Home() {
       </Section>
 
       <Section className="py-20 sm:py-24">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="flex flex-wrap items-end justify-between gap-4" data-reveal="">
           <div>
             <p className="eyebrow">Featured projects</p>
             <h2 className="display mt-3 text-3xl sm:text-5xl">
@@ -90,12 +94,13 @@ export default function Home() {
         <p className="lede mt-6">
           Every project comes with its own goals, people, limitations and unexpected problems. I look at what needs to be achieved, understand what’s getting in the way and build the way forward.
         </p>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal="">
           {featured.map((project) => (
             <Link
               key={project.slug}
               to={`/projects/${project.slug}`}
               className="group flex flex-col border border-taupe/40 bg-cream"
+              data-reveal-item=""
             >
               <div className="flex aspect-[4/3] items-end bg-wine p-4">
                 <p className="text-[0.62rem] uppercase tracking-brand text-gold">{project.status}</p>
@@ -116,15 +121,17 @@ export default function Home() {
       </Section>
 
       <Section className="border-t border-taupe/40 py-20 sm:py-24">
-        <p className="eyebrow">{home.change.eyebrow}</p>
-        <h2 className="display mt-3 max-w-3xl text-3xl sm:text-5xl">{home.change.title}</h2>
-        <p className="lede mt-6">{home.change.body}</p>
-        <p className="mt-4 max-w-measure font-serif text-xl italic text-burgundy">
-          {home.change.emphasis}
-        </p>
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div data-reveal="">
+          <p className="eyebrow">{home.change.eyebrow}</p>
+          <h2 className="display mt-3 max-w-3xl text-3xl sm:text-5xl">{home.change.title}</h2>
+          <p className="lede mt-6">{home.change.body}</p>
+          <p className="mt-4 max-w-measure font-serif text-xl italic text-burgundy">
+            {home.change.emphasis}
+          </p>
+        </div>
+        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4" data-reveal="">
           {home.change.steps.map((step, index) => (
-            <div key={step.title} className="relative">
+            <div key={step.title} className="relative" data-reveal-item="">
               <p className="eyebrow">0{index + 1}</p>
               <h3 className="mt-3 font-serif text-2xl text-burgundy">{step.title}</h3>
               <p className="mt-2 text-sm text-charcoal/70">{step.body}</p>
@@ -134,7 +141,7 @@ export default function Home() {
         <p className="script mt-12 text-3xl text-burgundy sm:text-4xl">{home.change.close}</p>
       </Section>
 
-      <Section className="border-t border-taupe/40 py-20 sm:py-24">
+      <Section className="border-t border-taupe/40 py-20 sm:py-24" reveal>
         <div className="grid gap-16 lg:grid-cols-2">
           <div>
             <p className="eyebrow">Ideas, insights & notes</p>
@@ -173,7 +180,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section className="border-t border-taupe/40 py-16 sm:py-20">
+      <Section className="border-t border-taupe/40 py-16 sm:py-20" reveal>
         <p className="script text-3xl">{home.aboutTeaser.eyebrow}</p>
         <h2 className="display mt-3 max-w-3xl text-3xl sm:text-4xl">{home.aboutTeaser.title}</h2>
         <p className="mt-6 max-w-measure font-serif text-2xl italic text-burgundy">
@@ -184,7 +191,7 @@ export default function Home() {
         </Link>
       </Section>
 
-      <Section className="bg-burgundy py-20 text-cream sm:py-24">
+      <Section className="bg-burgundy py-20 text-cream sm:py-24" reveal>
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <h2 className="display max-w-3xl text-3xl text-cream sm:text-5xl">{home.cta.title}</h2>

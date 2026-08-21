@@ -7,7 +7,12 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+html.has-smooth-scroll,
+html.has-smooth-scroll body {
+  height: auto;
 }
 
 body {
@@ -25,9 +30,20 @@ body {
   outline-offset: 3px;
 }
 
+[data-reveal],
+[data-reveal-item] {
+  opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  [data-reveal],
+  [data-reveal-item] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   *,
