@@ -1,8 +1,31 @@
-# React + Vite
+# Write From Left
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal site for **Khushboo Sangwan** — Creative Project Manager & Content Strategist.
 
-Currently, two official plugins are available:
+Editorial, warm, and intentionally light: one serif webfont, system UI type, no image-heavy homepage, and a tiny client-side router instead of extra libraries.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Pages
+
+- `/` Homepage invitation
+- `/work` Work with me
+- `/projects` Project lab
+- `/ideas` Thinking / blog
+- `/about` About Khushboo
+- `/shop` Products
+- `/contact` Start a conversation
+
+Copy and brand direction come from the Write From Left website content workspace (burgundy, deep wine, warm cream, charcoal).
+
+## Develop
+
+```bash
+npm install
+npm start
+```
+
+Build for production:
+
+```bash
+npm run build
+npm run preview
+```
