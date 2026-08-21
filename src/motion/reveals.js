@@ -69,7 +69,9 @@ export function collectUnits(section) {
     units.push(el)
   }
 
-  ;[...inner.children].forEach((child) => walk(child, 0))
+  for (const child of inner.children) {
+    walk(child, 0)
+  }
   return units
 }
 
