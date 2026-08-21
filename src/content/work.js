@@ -1,0 +1,127 @@
+export const work = {
+  eyebrow: 'Work with me',
+  title: 'Turning ideas into projects that actually move.',
+  lede: 'I work at the intersection of project management, creative strategy and content strategy, helping ideas move from concept to execution.',
+  body: 'Whether it is a campaign that needs direction, a project that needs coordination, a message that needs clarity, or a goal that needs a realistic plan, I bring structure without taking the creativity out of the process.',
+  punch: 'You bring the idea. I help move it forward.',
+  offerings: [
+    {
+      n: '01',
+      title: 'Project Management',
+      kicker: 'From scope to delivery.',
+      body: 'I turn objectives into clear plans, timelines, priorities and deliverables, keeping projects moving from the first idea to the final outcome.',
+      items: [
+        'Project planning',
+        'Scope and deliverables',
+        'Timeline management',
+        'Task coordination',
+        'Progress tracking',
+        'Risk and issue management',
+        'Stakeholder communication',
+        'Project documentation',
+      ],
+    },
+    {
+      n: '02',
+      title: 'Project Coordination',
+      kicker: 'Keeping people, information and deadlines moving together.',
+      body: 'Good projects rarely depend on one person doing everything. They depend on someone making sure everyone knows what needs to happen, when it needs to happen and what comes next. I coordinate moving parts, track progress and keep communication clear so projects do not lose momentum.',
+    },
+    {
+      n: '03',
+      title: 'Creative Strategy',
+      kicker: 'When the obvious solution is not the right one.',
+      body: 'I look at the problem behind the problem. When a project hits a roadblock, I break it down, identify what is actually getting in the way and find a practical creative direction forward.',
+      punch: 'Strategy is not just having ideas. It is knowing which idea can actually work.',
+    },
+    {
+      n: '04',
+      title: 'Content Strategy',
+      kicker: 'Making the message work as hard as the project.',
+      body: 'A good project can still fail if nobody understands it. I help shape the message, audience, positioning and content direction so the right idea reaches the right people in the right way.',
+    },
+    {
+      n: '05',
+      title: 'Content & Writing',
+      kicker: 'Because sometimes the person planning the message should also know how to write it.',
+      body: 'I bring writing into the strategy itself, creating content that is clear, purposeful and aligned with the bigger project objective. From campaigns and articles to brand messaging and creative concepts, I turn strategy into words people can understand.',
+    },
+  ],
+  process: {
+    eyebrow: 'How I work',
+    title: 'Understand → Plan → Coordinate → Create → Adapt → Deliver',
+    steps: [
+      {
+        n: '01',
+        title: 'Understand',
+        body: 'I start with the objective, the problem, the audience and the bigger picture.',
+      },
+      {
+        n: '02',
+        title: 'Plan',
+        body: 'I turn the idea into a practical roadmap with priorities, timelines and clear deliverables.',
+      },
+      {
+        n: '03',
+        title: 'Coordinate',
+        body: 'I keep people, tasks, information and deadlines moving in the same direction.',
+      },
+      {
+        n: '04',
+        title: 'Create',
+        body: 'I bring creative and content strategy into the execution, not as an afterthought.',
+      },
+      {
+        n: '05',
+        title: 'Adapt',
+        body: 'Because projects rarely go exactly as planned. When the plan changes, I change the plan.',
+      },
+      {
+        n: '06',
+        title: 'Deliver',
+        body: 'The goal is not simply to stay busy. It is to finish something meaningful, measurable and useful.',
+      },
+    ],
+  },
+  tools: {
+    eyebrow: 'Toolkit',
+    title: 'I use tools to make projects clearer, not more complicated.',
+    groups: [
+      { label: 'Project management', items: 'Notion · Asana · Trello · Monday.com' },
+      { label: 'Content & strategy', items: 'Google Workspace · Canva' },
+      { label: 'Communication', items: 'Slack · Zoom · Google Meet · Email' },
+      { label: 'Creative', items: 'Canva · Adobe · AI-assisted creative tools' },
+    ],
+  },
+  bring: {
+    eyebrow: 'What you can bring me',
+    items: [
+      { q: 'I have an idea, but I don’t know where to start.', a: 'Let’s turn it into a project.' },
+      { q: 'The project has too many moving parts.', a: 'Let’s give it structure.' },
+      { q: 'We know what we want to say, but not how to say it.', a: 'Let’s build the content strategy.' },
+      { q: 'Something isn’t working and we can’t figure out why.', a: 'Let’s find the roadblock.' },
+      { q: 'The deadline is getting closer and everything is everywhere.', a: 'Let’s create a plan and get things moving.' },
+      { q: 'I need someone who can understand the strategy and still execute.', a: 'That’s where the combination matters.' },
+    ],
+  },
+  why: {
+    title: 'I don’t see project management and creativity as separate things.',
+    punch: 'A strong project needs both.',
+    lines: [
+      'Structure gives an idea somewhere to go.',
+      'Strategy gives it direction.',
+      'Creativity gives it possibility.',
+      'Communication keeps people moving.',
+      'And project management makes sure it actually gets done.',
+    ],
+    close: 'That is the space I work in.',
+  },
+  build: [
+    { title: 'Campaigns', body: 'From concept to execution.' },
+    { title: 'Creative projects', body: 'Ideas that need structure, direction and delivery.' },
+    { title: 'Content strategies', body: 'Clear messaging built around a real objective.' },
+    { title: 'Brand and communication', body: 'Making sure what you do is understood by the people who matter.' },
+    { title: 'Personal projects', body: 'Because meaningful projects do not only exist inside companies.' },
+    { title: 'Communities and initiatives', body: 'Projects that bring people together around a shared goal.' },
+  ],
+}
