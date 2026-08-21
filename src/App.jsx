@@ -1,16 +1,17 @@
-import { useEffect, useMemo, useState } from 'react'
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
 import { NavigationContext } from './navigation.js'
 import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
-import Work from './pages/Work.jsx'
-import Projects from './pages/Projects.jsx'
-import ProjectDetail from './pages/ProjectDetail.jsx'
-import About from './pages/About.jsx'
-import Ideas from './pages/Ideas.jsx'
-import IdeaDetail from './pages/IdeaDetail.jsx'
-import Shop from './pages/Shop.jsx'
-import Contact from './pages/Contact.jsx'
-import NotFound from './pages/NotFound.jsx'
+
+const Work = lazy(() => import('./pages/Work.jsx'))
+const Projects = lazy(() => import('./pages/Projects.jsx'))
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail.jsx'))
+const About = lazy(() => import('./pages/About.jsx'))
+const Ideas = lazy(() => import('./pages/Ideas.jsx'))
+const IdeaDetail = lazy(() => import('./pages/IdeaDetail.jsx'))
+const Shop = lazy(() => import('./pages/Shop.jsx'))
+const Contact = lazy(() => import('./pages/Contact.jsx'))
+const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 
 function currentPath() {
   const path = window.location.pathname.replace(/\/+$/, '')
@@ -64,7 +65,15 @@ export default function App() {
   return (
     <NavigationContext.Provider value={navigation}>
       <Layout>
-        <RoutePage path={path} />
+        <Suspense
+          fallback={
+            <div className="px-5 py-24 text-[0.7rem] uppercase tracking-brand text-taupe sm:px-8">
+              Loading
+            </div>
+          }
+        >
+          <RoutePage path={path} />
+        </Suspense>
       </Layout>
     </NavigationContext.Provider>
   )
