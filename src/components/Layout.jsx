@@ -3,6 +3,10 @@ import Link from './Link.jsx'
 import { navItems, site } from '../content/site.js'
 import { useNavigation } from '../navigation.js'
 
+function isActive(path, to) {
+  return path === to || path.startsWith(`${to}/`)
+}
+
 export default function Layout({ children }) {
   const [open, setOpen] = useState(false)
   const { path } = useNavigation()
@@ -16,36 +20,38 @@ export default function Layout({ children }) {
         Skip to content
       </a>
       <header className="sticky top-0 z-40 border-b border-taupe/40 bg-cream/90 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-page items-center justify-between gap-4 px-5 py-4 sm:px-8">
-          <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-            <span className="h-5 w-px bg-gold" aria-hidden="true" />
-            <span className="font-sans text-[0.7rem] uppercase tracking-brand text-charcoal">
-              {site.name}
+        <div className="mx-auto flex max-w-page items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
+          <Link to="/" className="min-w-0" onClick={() => setOpen(false)}>
+            <span className="block font-serif text-sm tracking-[0.18em] text-charcoal sm:text-base">
+              WRITE FROM LEFT
+            </span>
+            <span className="mt-0.5 block text-[0.62rem] uppercase tracking-brand text-taupe">
+              {site.motto}
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-5 xl:flex xl:gap-7" aria-label="Primary">
             {navItems.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
-                className={`text-[0.7rem] uppercase tracking-brand transition-colors ${
-                  path === item.to || path.startsWith(`${item.to}/`)
+                className={`whitespace-nowrap text-[0.65rem] uppercase tracking-brand transition-colors ${
+                  isActive(path, item.to)
                     ? 'text-burgundy'
-                    : 'text-charcoal/70 hover:text-burgundy'
+                    : 'text-charcoal/65 hover:text-burgundy'
                 }`}
               >
                 {item.label}
               </Link>
             ))}
-            <Link to="/contact" className="btn-primary py-2.5">
-              Let’s talk
+            <Link to="/work" className="btn-primary py-2.5">
+              Work With Me
             </Link>
           </nav>
 
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center text-charcoal lg:hidden"
+            className="flex h-10 w-10 items-center justify-center text-charcoal xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -62,7 +68,7 @@ export default function Layout({ children }) {
         {open ? (
           <nav
             id="mobile-nav"
-            className="border-t border-taupe/40 px-5 py-6 lg:hidden"
+            className="border-t border-taupe/40 px-5 py-6 xl:hidden"
             aria-label="Mobile"
           >
             <div className="flex flex-col gap-4">
@@ -77,11 +83,11 @@ export default function Layout({ children }) {
                 </Link>
               ))}
               <Link
-                to="/contact"
+                to="/work"
                 className="btn-primary mt-2 w-fit"
                 onClick={() => setOpen(false)}
               >
-                Let’s talk
+                Work With Me
               </Link>
             </div>
           </nav>
@@ -94,18 +100,17 @@ export default function Layout({ children }) {
 
       <footer className="bg-wine text-cream">
         <div className="mx-auto grid max-w-page gap-12 px-5 py-16 sm:px-8 lg:grid-cols-12">
-          <div className="lg:col-span-6">
-            <p className="font-sans text-[0.7rem] uppercase tracking-brand text-gold">
-              {site.name}
-            </p>
-            <p className="mt-6 max-w-md font-serif text-3xl leading-tight sm:text-4xl">
+          <div className="lg:col-span-5">
+            <p className="font-serif text-lg tracking-[0.18em]">WRITE FROM LEFT</p>
+            <p className="mt-2 text-[0.62rem] uppercase tracking-brand text-gold">{site.motto}</p>
+            <p className="mt-6 max-w-sm font-serif text-2xl leading-snug sm:text-3xl">
               {site.philosophy}
             </p>
-            <p className="mt-6 max-w-md text-sm leading-7 text-cream/70">{site.belief}</p>
+            <p className="script mt-6 text-3xl text-gold">{site.tagline}</p>
           </div>
-          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-6 lg:grid-cols-2">
+          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-2">
             <div>
-              <p className="text-[0.7rem] uppercase tracking-brand text-gold">Explore</p>
+              <p className="text-[0.7rem] uppercase tracking-brand text-gold">Quick links</p>
               <ul className="mt-4 space-y-2 text-sm text-cream/80">
                 {navItems.map((item) => (
                   <li key={item.to}>
@@ -114,15 +119,10 @@ export default function Layout({ children }) {
                     </Link>
                   </li>
                 ))}
-                <li>
-                  <Link to="/contact" className="hover:text-cream">
-                    Contact
-                  </Link>
-                </li>
               </ul>
             </div>
             <div>
-              <p className="text-[0.7rem] uppercase tracking-brand text-gold">Write</p>
+              <p className="text-[0.7rem] uppercase tracking-brand text-gold">Let’s connect</p>
               <ul className="mt-4 space-y-2 text-sm text-cream/80">
                 <li>
                   <a className="hover:text-cream" href={`mailto:${site.emails.studio}`}>
@@ -135,7 +135,7 @@ export default function Layout({ children }) {
                   </a>
                 </li>
               </ul>
-              <p className="mt-8 font-serif text-xl italic text-gold">{site.tagline}</p>
+              <p className="mt-8 max-w-xs text-sm leading-6 text-cream/60">{site.belief}</p>
             </div>
           </div>
         </div>
