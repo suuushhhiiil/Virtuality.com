@@ -8,7 +8,7 @@ export const REVEAL_TO = {
 }
 
 export const REVEAL_SCROLL = {
-  start: 'top 60%',
+  start: 'top 85%',
   toggleActions: 'play none none reverse',
   invalidateOnRefresh: true,
 }
@@ -16,6 +16,9 @@ export const REVEAL_SCROLL = {
 export function revealItem(gsap, target, trigger = target) {
   return gsap.fromTo(target, REVEAL_FROM, {
     ...REVEAL_TO,
+    onComplete() {
+      gsap.set(target, { clearProps: 'transform' })
+    },
     scrollTrigger: {
       trigger,
       ...REVEAL_SCROLL,

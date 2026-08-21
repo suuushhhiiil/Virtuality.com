@@ -66,6 +66,7 @@ export function startMotion() {
     touchMultiplier: 1.1,
     wheelMultiplier: 0.88,
     anchors: true,
+    overscroll: false,
     stopInertiaOnNavigate: true,
     // Smooth scrolling should run unless we fail to boot — not hide behind OS reduce-motion.
     respectReducedMotion: false,

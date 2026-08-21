@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   const { path } = useNavigation()
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col overflow-x-hidden">
       <a
         href="#content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-cream focus:px-3 focus:py-2"
@@ -94,11 +94,11 @@ export default function Layout({ children }) {
         ) : null}
       </header>
 
-      <main id="content" className="flex-1">
+      <main id="content" className="flex-1 overflow-hidden">
         {children}
       </main>
 
-      <footer className="bg-wine text-cream">
+      <footer className="overflow-hidden bg-wine text-cream">
         <div className="mx-auto grid max-w-page gap-12 px-5 py-16 sm:px-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="font-serif text-lg tracking-[0.18em]">WRITE FROM LEFT</p>
