@@ -1,14 +1,14 @@
-export const REVEAL_FROM = { autoAlpha: 0, y: 36 }
+export const REVEAL_FROM = { autoAlpha: 0, x: -70 }
 export const REVEAL_TO = {
   autoAlpha: 1,
-  y: 0,
+  x: 0,
   duration: 0.85,
   ease: 'power2.out',
   overwrite: 'auto',
 }
 
 export const REVEAL_SCROLL = {
-  start: 'top 85%',
+  start: 'top 75%',
   toggleActions: 'play none none reverse',
   invalidateOnRefresh: true,
 }
