@@ -1,3 +1,5 @@
+import { revealItem } from './config.js'
+
 const SKIP_TAGS = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'BR', 'LINK', 'META'])
 const ATOMIC_TAGS = new Set([
   'ARTICLE',
@@ -85,20 +87,8 @@ export function bindPageReveals({ gsap, ScrollTrigger }) {
       const units = collectUnits(section)
       if (!units.length) return
 
-      gsap.from(units, {
-        autoAlpha: 0,
-        y: 28,
-        duration: 0.75,
-        ease: 'power2.out',
-        stagger: 0.07,
-        overwrite: 'auto',
-        immediateRender: true,
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 90%',
-          once: true,
-          fastScrollEnd: true,
-        },
+      units.forEach((unit) => {
+        revealItem(gsap, unit)
       })
     })
   }, content)

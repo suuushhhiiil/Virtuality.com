@@ -2,6 +2,7 @@ import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { revealItem } from './config.js'
 
 gsap.registerPlugin(ScrollTrigger)
 gsap.config({ autoSleep: 60, nullTargetWarn: false })
@@ -42,21 +43,10 @@ function bindChrome(gsapInstance) {
   if (!footer || footer === chromeNodes.footer) return
 
   chromeNodes.footer = footer
-  const cols = footer.querySelectorAll(':scope > div')
+  const cols = [...footer.querySelectorAll(':scope > div')]
   const targets = cols.length ? cols : [footer]
-  gsapInstance.from(targets, {
-    autoAlpha: 0,
-    y: 28,
-    duration: 0.8,
-    ease: 'power2.out',
-    stagger: 0.08,
-    overwrite: 'auto',
-    scrollTrigger: {
-      trigger: footer,
-      start: 'top 92%',
-      once: true,
-      fastScrollEnd: true,
-    },
+  targets.forEach((target) => {
+    revealItem(gsapInstance, target)
   })
 }
 
