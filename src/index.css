@@ -11,7 +11,9 @@ html {
 }
 
 html.has-smooth-scroll,
-html.has-smooth-scroll body {
+html.has-smooth-scroll body,
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -30,27 +32,9 @@ body {
   outline-offset: 3px;
 }
 
-[data-reveal],
-[data-reveal-item] {
-  opacity: 0;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  [data-reveal],
-  [data-reveal-item] {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
   }
 }
 

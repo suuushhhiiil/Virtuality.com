@@ -1,7 +1,7 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
+import { lazy, Suspense, useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import { NavigationContext } from './navigation.js'
 import { currentPath, withBase } from './paths.js'
-import { scrollToTop, startMotion } from './motion/engine.js'
+import { scrollToTop, ensureMotion } from './motion/engine.js'
 import { useScrollReveals } from './motion/useScrollReveals.js'
 import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
@@ -51,8 +51,11 @@ function RouteWithReveals({ path }) {
 export default function App() {
   const [path, setPath] = useState(currentPath)
 
+  useLayoutEffect(() => {
+    ensureMotion()
+  }, [])
+
   useEffect(() => {
-    startMotion()
     const onPop = () => setPath(currentPath())
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
