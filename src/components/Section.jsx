@@ -1,7 +1,7 @@
 export default function Section({
   children,
   className = '',
-  innerClass = 'max-w-page',
+  innerClass = 'lg:w-[80vw] w-full',
   as: Tag = 'section',
   id,
   reveal = false,
@@ -10,7 +10,7 @@ export default function Section({
   return (
     <Tag
       id={id}
-      className={`px-5 sm:px-8 ${className}`}
+      className={`px-8 lg:px-5 ${className}`}
       {...(reveal ? { 'data-reveal': '' } : {})}
       {...(stagger ? { 'data-reveal': '', 'data-reveal-stagger': '' } : {})}
     >

@@ -6,56 +6,57 @@ import HeroStill from '../components/HeroStill.jsx'
 import { home } from '../content/home.js'
 import { ideas } from '../content/ideas.js'
 import { projects } from '../content/projects.js'
+import heroImage from '../images/home/hero.png'
+import work from '../images/home/work.png'
 import { usePageTitle } from '../usePageTitle.js'
 
 export default function Home() {
   usePageTitle()
   const featured = projects.slice(0, 4)
   const notes = ideas.slice(0, 3)
-
   return (
     <>
-      <Section className="pb-16 pt-12 sm:pb-24 sm:pt-16">
+      <Section className="pb-16 pt-12 lg:pb-0 lg:pt-10" innerClass='max-w-page' >
         <div className="grid items-center gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7" data-reveal="">
-            <p className="script text-4xl sm:text-5xl">Hi, I’m</p>
-            <h1 className="display mt-2 text-4xl text-burgundy sm:text-6xl lg:text-7xl">
-              Khushboo Sangwan.
-            </h1>
-            <p className="mt-4 text-sm tracking-wide text-charcoal/70 sm:text-base">
-              {home.role}
-            </p>
-            <p className="mt-8 max-w-xl font-serif text-2xl leading-snug sm:text-3xl">
+          <div className="lg:col-span-6" data-reveal="">
+            <p className="max-w-xl font-sans font-bold leading-snug text-3xl">
               I believe your life is the{' '}
               <em className="text-burgundy">biggest</em> project you’ll ever manage.
             </p>
-            <p className="mt-4 font-serif text-xl italic text-charcoal/80">{home.question}</p>
+            <p className="mt-4 text-xl lg:text-lg tracking-wide text-charcoal/70">
+              {home.role}
+            </p>
+            {/* <p className="mt-4 font-serif text-xl italic text-charcoal/80">{home.question}</p> */}
             <Link to="/work" className="btn-primary mt-10">
               Work With Me <Arrow />
             </Link>
           </div>
-          <div className="lg:col-span-5" data-reveal="">
-            <HeroStill />
+
+          <div className="lg:col-span-6 relative">
+            {/* <div className='absolute hidden lg:block -z-10 -top-4 left-0 right-0'>
+              <p className="script lg:text-lg">Hi, I’m</p>
+              <h1 className="display text-5xl lg:text-6xl">
+                Khushboo Sangwan
+              </h1>
+            </div> */}
+            <img src={heroImage} alt="Khushboo Sangwan" className="w-full h-full object-center scale-[1.2] lg:scale-100" />
           </div>
+
+
         </div>
       </Section>
 
-      <Section className="border-t border-taupe/40 py-20 sm:py-24">
-        <div data-reveal="">
+      <Section className="lg:py-20 py-24 lg:h-screen" innerClass='max-w-page'>
+
+        <div className="lg:col-span-6" data-reveal="">
           <p className="eyebrow">{home.ideasNeed.eyebrow}</p>
-          <h2 className="display mt-3 max-w-3xl text-3xl uppercase text-burgundy sm:text-5xl">
+          <h2 className="display mt-3 max-w-3xl text-3xl capitalize text-burgundy sm:text-5xl">
             {home.perspectives.title}
           </h2>
-          <p className="lede mt-6">{home.perspectives.intro}</p>
+          <p className="mt-6">{home.perspectives.intro}</p>
         </div>
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6" data-reveal="">
-          {home.perspectives.items.map((item) => (
-            <article key={item.n} className="text-center sm:text-left" data-reveal-item="">
-              <Icon name={item.icon} className="mx-auto h-8 w-8 text-burgundy sm:mx-0" />
-              <h3 className="mt-4 font-serif text-xl text-burgundy">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-charcoal/70">{item.body}</p>
-            </article>
-          ))}
+        <div className="bg-test mt-14 relative min-h-[250px] w-full">
+          <img src={work} alt="Work" className="w-full h-full object-center" />
         </div>
       </Section>
 

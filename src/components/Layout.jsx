@@ -13,16 +13,10 @@ export default function Layout({ children }) {
 
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
-      <a
-        href="#content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-cream focus:px-3 focus:py-2"
-      >
-        Skip to content
-      </a>
-      <header className="sticky top-0 z-40 border-b border-taupe/40 bg-cream/90 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-page items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
+      <header className="sticky top-0 z-40 border-b border-taupe/40 bg-cream backdrop-blur-sm">
+        <div className="mx-auto flex max-w-page items-center justify-between gap-4 px-8 py-3.5 lg:px-0">
           <Link to="/" className="min-w-0" onClick={() => setOpen(false)}>
-            <span className="block font-serif text-sm tracking-[0.18em] text-charcoal sm:text-base">
+            <span className="block font-sans font-bold text-sm tracking-[0.18em] text-charcoal sm:text-base">
               WRITE FROM LEFT
             </span>
             <span className="mt-0.5 block text-[0.62rem] uppercase tracking-brand text-taupe">
@@ -35,18 +29,14 @@ export default function Layout({ children }) {
               <Link
                 key={item.to}
                 to={item.to}
-                className={`whitespace-nowrap text-[0.65rem] uppercase tracking-brand transition-colors ${
-                  isActive(path, item.to)
-                    ? 'text-burgundy'
-                    : 'text-charcoal/65 hover:text-burgundy'
-                }`}
+                className={`whitespace-nowrap text-[0.65rem] uppercase font-bold tracking-brand transition-colors ${isActive(path, item.to)
+                  ? 'text-burgundy'
+                  : 'text-charcoal/65 hover:text-burgundy'
+                  }`}
               >
                 {item.label}
               </Link>
             ))}
-            <Link to="/work" className="btn-primary py-2.5">
-              Work With Me
-            </Link>
           </nav>
 
           <button
